@@ -1,0 +1,281 @@
+
+html {
+    height: 100%;
+    overflow: hidden; 
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    height: 100%; 
+    padding: 0; 
+    margin: 0; 
+    overflow-y: hidden; 
+    background-image: url('images/jpbg.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+    color: #333333;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form-container-wrapper {
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px; 
+    flex-grow: 1; 
+    overflow-y: auto; 
+    max-width: 100vw; 
+}
+
+header {
+    width: 100%;
+    max-width: 500px;
+    margin-bottom: 30px;
+    text-align: center;
+    flex-shrink: 0; 
+}
+
+#logo-img {
+    width: 100%;
+    height: auto;
+    max-width: 350px; 
+    filter: drop-shadow(0 0 8px rgba(0, 0, 0, 0.2));
+    opacity: 0.85; 
+}
+
+main {
+    width: 100%;
+    max-width: 450px; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center; 
+    align-items: center;
+    flex-grow: 1; 
+}
+
+#dataForm {
+    background-color: rgba(255, 255, 255, 0.7); 
+    backdrop-filter: blur(8px); 
+    border: 1px solid rgba(0, 0, 0, 0.1); 
+    border-radius: 12px;
+    padding: 30px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); 
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 100%; 
+    flex-shrink: 0; 
+}
+
+
+#dataForm h2 {
+    color: #444444; 
+}
+
+
+label {
+    font-weight: 600;
+    margin-top: 5px;
+    font-size: 0.95rem;
+    color: #555555; 
+}
+
+input[type="text"],
+input[type="email"] {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #cccccc; 
+    border-radius: 8px;
+    background-color: #ffffff; 
+    color: #333333; 
+    font-size: 1rem;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus {
+    outline: none;
+    border-color: #999999; 
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1); 
+}
+
+
+button[type="submit"] {
+    padding: 12px 20px;
+    background-color: #555555;
+    color: #f0f0f0; 
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    font-weight: bold;
+    margin-top: 15px;
+    transition: background-color 0.3s, transform 0.1s;
+}
+
+button[type="submit"]:hover {
+    background-color: #666666; 
+    transform: translateY(-2px); 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+#responseMessage {
+    margin-top: 20px;
+    padding: 10px;
+    text-align: center;
+    font-weight: bold;
+    color: #444444; 
+}
+
+
+/* Media Queries for Responsiveness */
+@media (max-width: 500px) {
+    .form-container-wrapper {
+        padding: 10px;
+    }
+
+    #dataForm {
+        padding: 20px;
+    }
+}
+
+#dataForm.disabled-form input:not(#discount):disabled,
+#dataForm.disabled-form button[type="submit"]:disabled {
+    background-color: #e9ecef; 
+    color: #6c757d; 
+    border: 1px solid #ced4da;
+    cursor: not-allowed;
+}
+
+.error-message {
+    font-size: 0.7em;
+    font-weight: bold;
+}
+
+#discount.error-input {
+    border: 2px solid red !important; 
+}
+
+.popup-overlay {
+    position: fixed; 
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; 
+}
+
+.popup-content {
+    background-color: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    max-width: 400px;
+    width: 90%;
+    text-align: center;
+    position: relative;
+    border: 2px solid #dc3545; 
+}
+
+#popupMessage {
+    color: #dc3545; 
+    font-size: 1.1em;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    color: #aaa;
+}
+.close-btn:hover {
+    color: #333;
+}
+
+.close-btn-popup {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+}
+.close-btn-popup:hover {
+    background-color: #c82333;
+}
+
+
+.main-form {
+    width: 90%;
+}
+
+/* Add to styles.css */
+.receipt-style {
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 30px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #ffffff;
+}
+
+.receipt-style h2 {
+    color: #4CAF50; /* Green checkmark color */
+    border-bottom: 2px solid #eee;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+.receipt-details p {
+    margin: 10px 0;
+    line-height: 1.5;
+}
+
+.receipt-details strong {
+    display: inline-block;
+    width: 120px; /* Aligns the colons */
+    color: #333;
+}
+
+.button-back {
+    margin-top: 20px;
+    padding: 6px 12px;
+    background-color: #555555;
+    color: #f0f0f0; 
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    font-weight: bold;
+    justify-items: right;
+    transition: background-color 0.3s, transform 0.1s;
+}
+
+.button-back:hover {
+    background-color: #666666; 
+    transform: translateY(-2px); 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}

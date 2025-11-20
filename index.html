@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Joel's Place - Discount Form</title>
+    <link id='favicon' rel="shortcut icon" href="./images/JPlogo.png" type="image/x-png">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <img id="logo-img" src="images/JPlogo.png" alt="Joel's Place Logo">
+    </header>
+    
+    <div class="main-form">
+        <div class="form-container-wrapper"> 
+            <main>
+                <form id="dataForm" action="./backend/process.php" method="POST">
+                    <h2 style="text-align: center; margin-bottom: 20px;">Discount Registration</h2> 
+                    
+                    <label for="discount">Discount Code:</label>
+                    <input type="text" id="discount" name="discount" required onblur="validateDiscount()">
+                    <span id="discountError" class="error-message"></span>
+                    
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" required>
+
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+
+                    <label for="phone">Phone:</label>
+                    <input type="text" id="phone" name="phone" required>
+
+                    <button type="submit">Submit</button>
+                </form>
+
+                <div id="responseMessage"></div>
+            </main>
+
+            <div id="errorPopup" class="popup-overlay" style="display:none;">
+                <div class="popup-content">
+                    <span class="close-btn">&times;</span>
+                    <p id="popupMessage"></p>
+                    <button class="close-btn-popup">Close</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="receiptContainer" class="receipt-style" >
+            <div id="receiptDate" style="text-align: right; margin-bottom: 10px; font-style: italic;"></div>
+            <h2>✅ Registration Successful!</h2>
+            <p>Thank you for registering. Here are your details:</p>
+            <div class="receipt-details">
+                <p><strong>Discount Code:</strong> <span id="receiptDiscount"></span></p>
+                <p><strong>Name:</strong> <span id="receiptName"></span></p>
+                <p><strong>Email:</strong> <span id="receiptEmail"></span></p>
+                <p><strong>Phone:</strong> <span id="receiptPhone"></span></p>
+            </div>
+            <button onclick="location.reload()" class="button-back">BACK</button>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
