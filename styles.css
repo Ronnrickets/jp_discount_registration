@@ -1,7 +1,6 @@
-
 html {
     height: 100%;
-    overflow: hidden; 
+    /* overflow: hidden;  */
 }
 
 * {
@@ -14,7 +13,7 @@ body {
     height: 100%; 
     padding: 0; 
     margin: 0; 
-    overflow-y: hidden; 
+    /* overflow-y: hidden;  */
     background-image: url('images/jpbg.png');
     background-repeat: no-repeat;
     background-size: cover;
@@ -141,13 +140,80 @@ button[type="submit"]:hover {
 
 
 /* Media Queries for Responsiveness */
-@media (max-width: 500px) {
+@media (max-width: 600px) {
     .form-container-wrapper {
         padding: 10px;
     }
 
     #dataForm {
         padding: 20px;
+    }
+
+    /* Allow main content to be wider on smaller screens */
+    header, main {
+        max-width: 95%;
+    }
+    
+    /* Receipt adjustments for screens up to 600px */
+    .receipt-style {
+        max-width: 95%;
+        margin: 20px auto;
+        padding: 25px;
+    }
+    
+    .receipt-details strong {
+        width: 100px; /* Adjust alignment width for smaller screens */
+    }
+}
+
+/* New Media Query for Extra Small Cellphones (e.g., iPhone 5/SE, or narrow views) */
+@media (max-width: 400px) {
+    .form-container-wrapper {
+        padding: 5px; /* Reduce overall wrapper padding */
+    }
+
+    header {
+        margin-bottom: 20px;
+        max-width: 100%;
+    }
+    
+    #logo-img {
+        max-width: 250px; /* Ensure logo is not too big on tiny screens */
+    }
+
+    main {
+        max-width: 100%; /* Take up full width */
+        padding: 0 10px; /* Add slight horizontal padding if wrapper padding is minimal */
+    }
+
+    #dataForm {
+        padding: 15px; /* Reduce internal form padding */
+        gap: 10px;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    button[type="submit"] {
+        padding: 10px; /* Slightly smaller input/button padding */
+        font-size: 0.95rem;
+    }
+
+    button[type="submit"] {
+        margin-top: 10px;
+    }
+    
+    /* Receipt adjustments for screens up to 400px */
+    .receipt-style {
+        padding: 15px;
+    }
+    
+    .receipt-style h2 {
+        font-size: 1.2rem;
+    }
+
+    .receipt-details strong {
+        display: block; /* Make label stack on top of value */
+        width: auto; 
     }
 }
 
@@ -229,6 +295,7 @@ button[type="submit"]:hover {
 
 .main-form {
     width: 90%;
+    position: relative;
 }
 
 /* Add to styles.css */
