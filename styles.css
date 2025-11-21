@@ -346,3 +346,23 @@ button[type="submit"]:hover {
     transform: translateY(-2px); 
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
+
+.name-row {
+    display: flex;
+    gap: 8px; 
+    margin-bottom: 5px;
+}
+
+.name-row > div {
+    flex: 1; 
+    display: flex; 
+    flex-direction: column;
+}
+
+.name-row label {
+    margin-top: 0; 
+}
+
+.name-row input[type="text"] {
+    width: 100%;
+}
