@@ -32,7 +32,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 20px; 
+    padding: 15px; 
     flex-grow: 1; 
     overflow-y: auto; 
     max-width: 100vw; 
@@ -41,7 +41,7 @@ body {
 header {
     width: 100%;
     max-width: 500px;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
     text-align: center;
     flex-shrink: 0; 
 }
@@ -69,11 +69,11 @@ main {
     backdrop-filter: blur(8px); 
     border: 1px solid rgba(0, 0, 0, 0.1); 
     border-radius: 12px;
-    padding: 30px;
+    padding: 15px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); 
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 10px;
     width: 100%; 
     flex-shrink: 0; 
 }
@@ -85,7 +85,7 @@ main {
 
 
 label {
-    font-weight: 600;
+    font-weight: 500;
     margin-top: 5px;
     font-size: 0.95rem;
     color: #555555; 
@@ -94,7 +94,7 @@ label {
 input[type="text"],
 input[type="email"] {
     width: 100%;
-    padding: 12px;
+    padding: 10px;
     border: 1px solid #cccccc; 
     border-radius: 8px;
     background-color: #ffffff; 
@@ -173,7 +173,7 @@ button[type="submit"]:hover {
     }
 
     header {
-        margin-bottom: 20px;
+        margin-bottom: 10px;
         max-width: 100%;
     }
     
@@ -187,19 +187,19 @@ button[type="submit"]:hover {
     }
 
     #dataForm {
-        padding: 15px; /* Reduce internal form padding */
-        gap: 10px;
+        padding: 12px; /* Reduce internal form padding */
+        gap: 8px;
     }
 
     input[type="text"],
     input[type="email"],
     button[type="submit"] {
-        padding: 10px; /* Slightly smaller input/button padding */
-        font-size: 0.95rem;
+        padding: 8px; /* Slightly smaller input/button padding */
+        font-size: 0.85rem;
     }
 
     button[type="submit"] {
-        margin-top: 10px;
+        margin-top: 8px;
     }
     
     /* Receipt adjustments for screens up to 400px */

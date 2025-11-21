@@ -11,11 +11,12 @@ if (!isset($pdo) || !$pdo instanceof PDO) {
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $discount   = trim($_POST['discount'] ?? '');
-    $name       = trim($_POST['name'] ?? '');
+    $lastname       = trim($_POST['lastname'] ?? '');
+    $firstname       = trim($_POST['firstname'] ?? '');
     $email      = trim($_POST['email'] ?? '');
     $phone      = trim($_POST['phone'] ?? '');
 
-    if (empty($name) || empty($email) || empty($discount) || empty($phone)) {
+    if (empty($lastname) || empty($firstname) || empty($email) || empty($discount) || empty($phone)) {
         http_response_code(400); 
         echo json_encode(['success' => false, 'message' => 'All fields are required.']);
         exit;
@@ -57,14 +58,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
     
     $sql = "
-        INSERT INTO registration (DiscountCode, Name, Email, Phone) 
-        VALUES (:discount, :name, :email, :phone)
+        INSERT INTO registration (DiscountCode, LastName, FirstName, Email, Phone) 
+        VALUES (:discount, :lastname, :firstname, :email, :phone)
     ";
     
     try {
         $stmt = $pdo->prepare($sql);
         $stmt->bindParam(':discount', $discount);
-        $stmt->bindParam(':name', $name);
+        $stmt->bindParam(':lastname', $lastname);
+        $stmt->bindParam(':firstname', $firstname);
         $stmt->bindParam(':email', $email);
         $stmt->bindParam(':phone', $phone);
 

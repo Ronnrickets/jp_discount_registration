@@ -1,5 +1,5 @@
 function setFormState(isValid) {
-    const fields = ['name', 'email', 'phone'];
+    const fields = ['lastname', 'firstname', 'email', 'phone'];
     const submitButton = document.querySelector('button[type="submit"]');
     
     fields.forEach(fieldId => {
@@ -70,7 +70,7 @@ async function validateDiscount() {
 
 document.getElementById('dataForm').addEventListener('submit', function(event) {
     event.preventDefault(); 
-    if (document.getElementById('name').disabled) {
+    if (document.getElementById('lastname').disabled) {
         document.getElementById('responseMessage').textContent = '⚠️ Please enter a valid discount code first.';
         document.getElementById('responseMessage').style.backgroundColor = '#fcf8e3';
         return; 
@@ -146,7 +146,7 @@ function displayReceipt(formData) {
     // Populate the receipt container
     document.getElementById('receiptDate').textContent = formattedDate;
     document.getElementById('receiptDiscount').textContent = formData.get('discount');
-    document.getElementById('receiptName').textContent = formData.get('name');
+    document.getElementById('receiptName').textContent =  formData.get('firstname') + ' ' + formData.get('lastname');
     document.getElementById('receiptEmail').textContent = formData.get('email');
     document.getElementById('receiptPhone').textContent = formData.get('phone');
 
