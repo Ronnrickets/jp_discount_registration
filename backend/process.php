@@ -15,7 +15,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $firstname       = trim($_POST['firstname'] ?? '');
     $email      = trim($_POST['email'] ?? '');
     $phone      = trim($_POST['phone'] ?? '');
-
+    $condition1      = trim($_POST['condition1'] ?? '');
+    $condition2      = trim($_POST['condition2'] ?? '');
     if (empty($lastname) || empty($firstname) || empty($email) || empty($discount) || empty($phone)) {
         http_response_code(400); 
         echo json_encode(['success' => false, 'message' => 'All fields are required.']);
@@ -47,7 +48,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             http_response_code(409); 
             echo json_encode([
                 'success' => false, 
-                'message' => 'The **Discount Code** is already registered with this **Email** or **Phone** number.'
+                'message' => 'This discount code has already been registered with this email or phone number.'
             ]);
             exit;
         }
@@ -58,8 +59,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
     
     $sql = "
-        INSERT INTO registration (DiscountCode, LastName, FirstName, Email, Phone) 
-        VALUES (:discount, :lastname, :firstname, :email, :phone)
+        INSERT INTO registration (DiscountCode, LastName, FirstName, Email, Phone, is_agree_updates, is_agree_privacy) 
+        VALUES (:discount, :lastname, :firstname, :email, :phone, :condition1, :condition2)
     ";
     
     try {
@@ -69,6 +70,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $stmt->bindParam(':firstname', $firstname);
         $stmt->bindParam(':email', $email);
         $stmt->bindParam(':phone', $phone);
+        $stmt->bindParam(':condition1', $condition1);
+        $stmt->bindParam(':condition2', $condition2);
 
         if ($stmt->execute()) {
             echo json_encode(['success' => true, 'message' => 'New record created successfully.']);

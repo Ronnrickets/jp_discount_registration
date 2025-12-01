@@ -130,12 +130,50 @@ button[type="submit"]:hover {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
+button[type="submit"].fields-filled {
+    background-color: #4CAF50; 
+}
+
+button[type="submit"].fields-filled:hover {
+    background-color: #45A049;
+    transform: translateY(-2px); 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+button[type="submit"]:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+    background-color: #555555; 
+}
+
+button[type="submit"].fields-filled:disabled {
+     background-color: #555555; 
+     opacity: 0.5;
+}
+
+button[type="submit"].fields-filled:not(:disabled) {
+    background-color: #4CAF50; 
+}
+
 #responseMessage {
-    margin-top: 20px;
+    /* margin-top: 20px;
     padding: 10px;
     text-align: center;
     font-weight: bold;
-    color: #444444; 
+    color: #444444;  */
+    position: absolute;
+    top: 50%;
+    left: 50%; 
+    transform: translate(-50%, -50%); 
+    z-index: 50; 
+
+    margin-top: 0;
+    padding: 20px; 
+    text-align: center;
+    color: #333333;
+    border-radius: 8px; 
 }
 
 
@@ -163,6 +201,10 @@ button[type="submit"]:hover {
     
     .receipt-details strong {
         width: 100px; /* Adjust alignment width for smaller screens */
+    }
+
+    #responseMessage {
+        width: 80%; /* Ensure it fits within smaller screens */
     }
 }
 
@@ -262,7 +304,7 @@ button[type="submit"]:hover {
 #popupMessage {
     color: #dc3545; 
     font-size: 1.1em;
-    font-weight: bold;
+    font-weight: normal;
     margin-bottom: 20px;
 }
 
@@ -314,6 +356,7 @@ button[type="submit"]:hover {
     border-bottom: 2px solid #eee;
     padding-bottom: 10px;
     margin-bottom: 20px;
+    text-align: center;
 }
 
 .receipt-details p {

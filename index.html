@@ -16,9 +16,12 @@
         <div class="form-container-wrapper"> 
             <main>
                 <form id="dataForm" action="./backend/process.php" method="POST">
-                    <h2 style="text-align: center; margin-bottom: 20px;">Discount Registration</h2> 
+                    <h2 style="text-align: center; margin-bottom: 20px;">Exclusive Offer Validation</h2> 
                     
-                    <label for="discount">Discount Code:</label>
+                    <label for="discount">
+                        <p>Discount Code: </p>
+                        <p> <i style="font-size: 10px;">(Refer to the five alphanumeric characters below the QR code.)</i></p>
+                    </label>
                     <input type="text" id="discount" name="discount" required onblur="validateDiscount()">
                     <span id="discountError" class="error-message"></span>
                     
@@ -29,22 +32,33 @@
                     <input type="text" id="firstname" name="firstname" required> -->
 
                     <div class="name-row">
+                        
                         <div>
-                            <label for="lastname">Last Name:</label>
-                            <input type="text" id="lastname" name="lastname" required>
-                        </div>
-
-                        <div>
-                            <label for="firstname">First Name:</label>
+                            <label for="firstname">First Name <i style="font-size: 10px;">(required)</i></label>
                             <input type="text" id="firstname" name="firstname" required>
+                        </div>
+                        
+                        <div>
+                            <label for="lastname">Last Name <i style="font-size: 10px;">(required)</i></label>
+                            <input type="text" id="lastname" name="lastname" required>
                         </div>
                     </div>
 
-                    <label for="email">Email:</label>
+                    <label for="email">Email <i style="font-size: 10px;">(required)</i></label>
                     <input type="email" id="email" name="email" required>
 
-                    <label for="phone">Phone:</label>
+                    <label for="phone">Phone <i style="font-size: 10px;">(required)</i></label>
                     <input type="text" id="phone" name="phone" required>
+
+                    <div>
+                        <input type="checkbox" id="condition1" name="condition1" value="condition1">
+                        <label for="condition1">I agree to receive exclusive updates, news, and events from Joel’s Place.</label>
+                    </div>
+
+                    <div>
+                        <input type="checkbox" id="condition2" name="condition2" value="condition2">
+                        <label for="condition1">I agree to the use of my personal data as described in the <a href="https://joelsplace.com/pages/your-privacy" target="_blank">Privacy Policy</a>.</label>
+                    </div>
 
                     <button type="submit">Submit</button>
                 </form>
@@ -62,15 +76,29 @@
         </div>
 
         <div id="receiptContainer" class="receipt-style" style="display: none;">
-            <div id="receiptDate" style="text-align: right; margin-bottom: 10px; font-style: italic;"></div>
-            <h2>✅ Registration Successful!</h2>
-            <p>Thank you for registering. Here are your details:</p>
+            <div id="receiptDate" style="text-align: center; margin-bottom: 10px; font-style: italic;"></div>
+            <h2>✅ Validation Successful</h2>
+            <!-- <p>Your details have been verified.</p>
             <div class="receipt-details">
                 <p><strong>Discount Code:</strong> <span id="receiptDiscount"></span></p>
                 <p><strong>Name:</strong> <span id="receiptName"></span></p>
                 <p><strong>Email:</strong> <span id="receiptEmail"></span></p>
                 <p><strong>Phone:</strong> <span id="receiptPhone"></span></p>
-            </div>
+                <hr>
+                <span style="font-size: small;">Enjoy your complimentary Powershot today — valid for one-time redemption only.</span>
+            </div> -->
+            <p>
+                Take a screenshot of this page and show to the cashier upon payment to redeem your perks from December 5-7, 2025:
+            </p>
+            <br>
+            <ul style="margin-left: 20px;">
+                <li>15% off The Deli, Baker, Barista</li>
+                <li>10% off on all other items</li>
+            </ul>
+            <br>
+            <p>
+               <i>Excludes sale/markdown items, concessionaires, and wine/liquor/beer.</i>
+            </p>
             <button onclick="location.reload()" class="button-back">BACK</button>
         </div>
     </div>
